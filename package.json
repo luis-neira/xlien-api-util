@@ -1,0 +1,17 @@
+{
+  "name": "xlien-api-util",
+  "version": "1.0.0",
+  "description": "The package will seed the xlien-api-db",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Luis Neira",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "knex": "^2.3.0",
+    "pg": "^8.8.0"
+  }
+}
