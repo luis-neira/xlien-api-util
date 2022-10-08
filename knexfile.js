@@ -1,5 +1,18 @@
 'use strict';
 
+const Hoek = require('@hapi/hoek');
+
+const required = [
+  'POSTGRES_DB_NAME',
+  'POSTGRES_USER',
+  'POSTGRES_PASSWORD',
+  'POSTGRES_HOST',
+  'REDIS_HOST',
+];
+
+const missing = required.filter(e => !process.env.hasOwnProperty(e));
+Hoek.assert(Hoek.contain(process.env, required), `Missing some required env variables: ${missing.join(',')}`);
+
 // Update with your config settings.
 
 /**
