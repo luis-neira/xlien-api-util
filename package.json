@@ -11,8 +11,13 @@
   "license": "ISC",
   "dependencies": {
     "@hapi/hoek": "^10.0.1",
+    "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
     "knex": "^2.3.0",
-    "pg": "^8.8.0"
+    "pg": "^8.8.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.5.0"
   }
 }
