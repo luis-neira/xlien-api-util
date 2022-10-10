@@ -1,5 +1,5 @@
 
-module.export = [
+module.exports = [
   { 
     orderId: '87b2ea57-56a3-42d6-82d3-14277a1d727d',
     orderType: 'Copy of Title',

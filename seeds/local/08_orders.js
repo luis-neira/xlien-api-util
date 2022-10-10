@@ -9,28 +9,17 @@ const taskTypes = require('../../mocks/task_types');
 
 // Adds vendors and requesting companies.
 exports.seed = async knex => {
+  await knex('event_logs').del()
   await knex('packets').del()
+  await knex('order_tasks').del();
   await knex('orders').del();
-  await knex('order_task').del();
   await knex('tasks').del();
+  await knex('documents').del();
 
   const packetId = uuidv4();
   const orderId = uuidv4();
   let taskId = uuidv4();
   const orderType = faker.helpers.arrayElement(orderTypes);
-
-  await knex('requesting_companies').insert([
-    {
-      'requesting_company_id': '931cbbba-3ff6-487f-b3b5-76a27c897afc',
-    },
-  ]);
-
-  await knex('vendors').insert([
-    {
-      'vendor_id': 'FL',
-      'vendor_secret': 'SECRET_SECRET',
-    },
-  ]);
 
   await knex('packets').insert([
     {
@@ -46,7 +35,7 @@ exports.seed = async knex => {
       lender_id: '191bc552-230d-4568-af03-7231c4270f5e', // depend
       lender_name: 'Fastlane Test Bank (Not-Automatic)',
       vin: '1N4AL3AP8JC231502',
-      claim_number: 'random claim number',
+      claim_number: faker.random.numeric(8),
       account_number: '20351b4f6f1b322a582a29c29ccc6a30$8760a991f6eee2d6d765e1e701906e5c09cbf39bf18ca4da$f91dd28ec538a7287b435c205571176fd0a87ee59534324ac0f65c7e549f9c5c',
       owners_name: `${faker.name.firstName()} ${faker.name.lastName()}`,
       owners_street_address: `${faker.random.numeric(2, { allowLeadingZeros: true })} ${faker.address.street()}`,
@@ -62,7 +51,7 @@ exports.seed = async knex => {
       make: 'NISSAN',
       model: 'Altima',
       year: '2018',
-      userId: '79ba8da5-5b51-47c6-a016-5f98c0e22916',
+      user_id: '79ba8da5-5b51-47c6-a016-5f98c0e22916',
       archived: false,
       title_remittance_address: '95 Stehr Parkway',
       odometer: 'random number string',
@@ -94,11 +83,11 @@ exports.seed = async knex => {
     {
       order_id: orderId,
       packet_id: packetId,
-      type: orderType.type,
+      type: orderType.orderType,
       status: 'pending',
       created_at: knex.raw('NOW()'),
       updated_at: knex.raw('NOW()'),
-      order_type_id: orderType.id,
+      order_type_id: orderType.orderId,
       enabled: orderType.enabled,
       attempt_count: 0,
       system_attempt_count: 0,
@@ -125,7 +114,7 @@ exports.seed = async knex => {
         created_at: knex.raw('NOW()'),
         updated_at: knex.raw('NOW()'),
         task_type_id: orderType.taskTypeId,
-        processingGroup: 'lossexpress',
+        processing_group: 'lossexpress',
       },
     ]);
   
@@ -133,7 +122,7 @@ exports.seed = async knex => {
     
   }
 
-  await knex('order_task').insert([
+  await knex('order_tasks').insert([
     {
       order_id: orderId,
       task_id: taskId,
