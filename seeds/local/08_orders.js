@@ -56,8 +56,8 @@ exports.seed = async knex => {
       finance_type: 'Retail',
       requesting_company_id: userInfo.requesting_company_id,
       vendor_id: 'LE',
-      created_at: knex.raw('NOW()'),
-      updated_at: knex.raw('NOW()'),
+      created_at: new Date().toJSON(),
+      updated_at: new Date().toJSON(),
       make: vehicleInfo.make,
       model: vehicleInfo.model,
       year: vehicleInfo.year,
@@ -95,8 +95,8 @@ exports.seed = async knex => {
       packet_id: packetId,
       type: orderType.orderType,
       status: 'pending',
-      created_at: knex.raw('NOW()'),
-      updated_at: knex.raw('NOW()'),
+      created_at: new Date().toJSON(),
+      updated_at: new Date().toJSON(),
       order_type_id: orderType.orderId,
       enabled: orderType.enabled,
       attempt_count: 0,
@@ -121,8 +121,8 @@ exports.seed = async knex => {
           [int]: parseInt(num)
         }),
         priority: 1,
-        created_at: knex.raw('NOW()'),
-        updated_at: knex.raw('NOW()'),
+        created_at: new Date().toJSON(),
+        updated_at: new Date().toJSON(),
         task_type_id: orderType.taskTypeId,
         processing_group: 'lossexpress',
       },
@@ -136,8 +136,8 @@ exports.seed = async knex => {
     {
       order_id: orderId,
       task_id: taskId,
-      created_at: knex.raw('NOW()'),
-      updated_at: knex.raw('NOW()'),
+      created_at: new Date().toJSON(),
+      updated_at: new Date().toJSON(),
     },
   ]);
 
@@ -145,8 +145,8 @@ exports.seed = async knex => {
     {
       packet_id: packetId,
       document_name: `${packetId}-Regular PDF.pdf`,
-      created_at: knex.raw('NOW()'),
-      updated_at: knex.raw('NOW()'),
+      created_at: new Date().toJSON(),
+      updated_at: new Date().toJSON(),
       deleted: false,
       is_form: false,
       type: 'settlement breakdown'
@@ -154,8 +154,8 @@ exports.seed = async knex => {
     {
       packet_id: packetId,
       document_name: `${packetId}-Regular PDF.pdf`,
-      created_at: knex.raw('NOW()'),
-      updated_at: knex.raw('NOW()'),
+      created_at: new Date().toJSON(),
+      updated_at: new Date().toJSON(),
       deleted: false,
       is_form: false,
       type: 'valuation report'
