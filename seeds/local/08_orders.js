@@ -46,7 +46,7 @@ exports.seed = async knex => {
       account_number: '20351b4f6f1b322a582a29c29ccc6a30$8760a991f6eee2d6d765e1e701906e5c09cbf39bf18ca4da$f91dd28ec538a7287b435c205571176fd0a87ee59534324ac0f65c7e549f9c5c',
       owners_name: `${faker.name.firstName()} ${faker.name.lastName()}`,
       owners_street_address: `${faker.random.numeric(2, { allowLeadingZeros: true })} ${faker.address.street()}`,
-      owners_phone_number: faker.phone.number('(###) ###-###'),
+      owners_phone_number: faker.phone.number('+1##########'),
       settlement_amount: faker.commerce.price(20_000, 50_000),
       deductible: faker.commerce.price(500, 2_000),
       date_of_loss: faker.date.between(

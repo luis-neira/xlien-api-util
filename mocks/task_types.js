@@ -1,17 +1,18 @@
+'use strict';
 
 module.exports = [
   {
-    id: 'a4f26b03-a3aa-493a-9a69-7f3badfcb902',
+    id: '886433f3-978f-4e78-b966-b4ef64a365ed',
     name:'Send Loss Initiation Docs',
     dueBy: '8 hours'
   },
   {
-    id: 'c7238a27-0f87-4244-a792-f07ddcec0fd2', 
+    id: '9e4bbec2-795d-47af-8a1d-78db31cf7a89', 
     name: 'Loss Initiation Call',
     dueBy:  '1 hour'
   },
   {
-    id: 'a6c08bbb-312e-4d9a-98e8-79d26631cda9', 
+    id: 'a7bf1174-ef6b-40aa-bf91-4148810efcf0', 
     name: 'Fulfill Order(s)',
     dueBy:	'1 hour'
   },
@@ -92,7 +93,7 @@ module.exports = [
   },
   {
     id: '53731c3f-552a-4fc2-bdb4-251b00d8eeca', 
-    name: 'Review Lender Counter-Offer	1', 
+    name: 'Review Lender Counter-Offer', 
     dueBy: 'hours'
   },
   {
