@@ -8,7 +8,7 @@ const DatabaseClient = require('./db/client');
 program
   .option('-a, --additional-order-types', 'set column in requesting_companies table to TRUE')
   .option('-e, --email-address', "set column in users to 'luis.neira@lossexpress.com'")
-  .option('-w, --worker-can', "set true all values for worker")
+  .option('-w, --worker-can', "set true all values for worker");
 
 program.parse(process.argv);
 
@@ -74,5 +74,5 @@ if (options.additionalOrderTypes) {
   });
 } else { 
   console.log('please supply arguments!');
-  console.log(options)
+  console.log(options);
 }
