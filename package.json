@@ -4,13 +4,14 @@
   "description": "The package will seed the xlien-api-db",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "Luis Neira",
   "license": "ISC",
   "dependencies": {
     "@hapi/hoek": "^10.0.1",
+    "commander": "^9.4.1",
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
     "knex": "^2.3.0",
