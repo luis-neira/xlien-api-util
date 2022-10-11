@@ -13,12 +13,12 @@ const causesOfLoss = require('../../mocks/cause-of-loss');
 
 // Adds vendors and requesting companies.
 exports.seed = async knex => {
-  await knex('event_logs').del()
-  await knex('packets').del()
-  await knex('order_tasks').del();
-  await knex('orders').del();
-  await knex('tasks').del();
-  await knex('documents').del();
+  // await knex('event_logs').del()
+  // await knex('packets').del()
+  // await knex('order_tasks').del();
+  // await knex('orders').del();
+  // await knex('tasks').del();
+  // await knex('documents').del();
 
   const packetId = uuidv4();
   const orderId = uuidv4();
@@ -28,13 +28,13 @@ exports.seed = async knex => {
   const lenderInfo = faker.helpers.arrayElement(lenders);
   const userInfo = faker.helpers.arrayElement(users);
 
-  await knex('packets').insert([
-    {
-      'packet_id': 'd26a97bb-951b-4a9c-a421-637f3184bbea',
-      'requesting_company_id': '931cbbba-3ff6-487f-b3b5-76a27c897afc',
-      'vendor_id': 'FL',
-    },
-  ]);
+  // await knex('packets').insert([
+  //   {
+  //     'packet_id': 'd26a97bb-951b-4a9c-a421-637f3184bbea',
+  //     'requesting_company_id': '931cbbba-3ff6-487f-b3b5-76a27c897afc',
+  //     'vendor_id': 'FL',
+  //   },
+  // ]);
 
   await knex('packets').insert([
     {
