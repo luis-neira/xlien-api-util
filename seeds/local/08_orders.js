@@ -6,6 +6,10 @@ const { add } = require('date-fns');
 
 const orderTypes = require('../../mocks/order-types');
 const taskTypes = require('../../mocks/task_types');
+const vins = require('../../mocks/vins');
+const lenders = require('../../mocks/lenders');
+const users = require('../../mocks/users');
+const causesOfLoss = require('../../mocks/cause-of-loss');
 
 // Adds vendors and requesting companies.
 exports.seed = async knex => {
@@ -20,6 +24,9 @@ exports.seed = async knex => {
   const orderId = uuidv4();
   let taskId = uuidv4();
   const orderType = faker.helpers.arrayElement(orderTypes);
+  const vehicleInfo = faker.helpers.arrayElement(vins);
+  const lenderInfo = faker.helpers.arrayElement(lenders);
+  const userInfo = faker.helpers.arrayElement(users);
 
   await knex('packets').insert([
     {
@@ -32,9 +39,9 @@ exports.seed = async knex => {
   await knex('packets').insert([
     {
       packet_id: packetId,
-      lender_id: '191bc552-230d-4568-af03-7231c4270f5e', // depend
-      lender_name: 'Fastlane Test Bank (Not-Automatic)',
-      vin: '1N4AL3AP8JC231502',
+      lender_id: lenderInfo.lender_id,
+      lender_name: lenderInfo.lender_name,
+      vin: vehicleInfo.vin,
       claim_number: faker.random.numeric(8),
       account_number: '20351b4f6f1b322a582a29c29ccc6a30$8760a991f6eee2d6d765e1e701906e5c09cbf39bf18ca4da$f91dd28ec538a7287b435c205571176fd0a87ee59534324ac0f65c7e549f9c5c',
       owners_name: `${faker.name.firstName()} ${faker.name.lastName()}`,
@@ -42,27 +49,30 @@ exports.seed = async knex => {
       owners_phone_number: faker.phone.number('(###) ###-###'),
       settlement_amount: faker.commerce.price(20_000, 50_000),
       deductible: faker.commerce.price(500, 2_000),
-      date_of_loss: '2022-04-03',
-      finance_type: 'Retial',
-      requesting_company_id: '931cbbba-3ff6-487f-b3b5-76a27c897af2',
+      date_of_loss: faker.date.between(
+        new Date('January 1 2022').toISOString(),
+        new Date().toISOString(),
+        ).toISOString().split('T')[0],
+      finance_type: 'Retail',
+      requesting_company_id: userInfo.requesting_company_id,
       vendor_id: 'LE',
       created_at: knex.raw('NOW()'),
       updated_at: knex.raw('NOW()'),
-      make: 'NISSAN',
-      model: 'Altima',
-      year: '2018',
-      user_id: '79ba8da5-5b51-47c6-a016-5f98c0e22916',
+      make: vehicleInfo.make,
+      model: vehicleInfo.model,
+      year: vehicleInfo.year,
+      user_id: userInfo.user_id,
       archived: false,
-      title_remittance_address: '95 Stehr Parkway',
-      odometer: 'random number string',
+      title_remittance_address: `${faker.random.numeric(2, { allowLeadingZeros: true })} ${faker.address.street()}`,
+      odometer: faker.random.numeric(5),
       tags: '[]',
       owners_name_updated: false,
       owners_address_updated: false,
-      internal_status_updated_at: new Date().toJSON(), // todo
+      internal_status_updated_at: new Date().toJSON(),
       internal_status: 'Newly Added to Queue',
       do_not_notify_users: '[]',
       owner_retained: false,
-      cause_of_loss: 'Single-Vehicle Collision',
+      cause_of_loss: faker.helpers.arrayElement(causesOfLoss),
       titled_owners_name_verified: false,
       review_any_changes: false,
       received_by_gcm: false,
