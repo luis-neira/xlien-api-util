@@ -84,7 +84,7 @@ exports.seed = async knex => {
       lender_fax_number: '+999-9999-0',
       lender_has_title: false,
       followup_count: 0,
-      test_claim: true,
+      test_claim: false,
       processing_group: 'lossexpress',
     },
   ]);
