@@ -11,7 +11,8 @@ const lenders = require('../../mocks/lenders');
 const users = require('../../mocks/users');
 const causesOfLoss = require('../../mocks/cause-of-loss');
 const documentType = require('../../mocks/document-types');
-const eventLogTypes = require('../../mocks');
+const eventLogTypes = require('../../mocks/event-logs-types');
+const processingGroup = require('../../mocks/processing-groups');
 
 // Adds vendors and requesting companies.
 exports.seed = async knex => {
@@ -88,7 +89,7 @@ exports.seed = async knex => {
       lender_has_title: false,
       followup_count: 0,
       test_claim: false,
-      processing_group: 'lossexpress',
+      processing_group: processingGroup.LOSS_EXPRESS,
     },
   ]);
 
@@ -176,7 +177,7 @@ exports.seed = async knex => {
   await knex('tasks').insert([
     {
       task_id: taskId,
-      packet_id: packetId, //depend
+      packet_id: packetId,
       status: 'unstarted',
       due_by: add(new Date(), {
         [int]: parseInt(num)
@@ -185,7 +186,7 @@ exports.seed = async knex => {
       created_at: new Date().toJSON(),
       updated_at: new Date().toJSON(),
       task_type_id: orderType.taskTypeId,
-      processing_group: 'lossexpress',
+      processing_group: processingGroup.LOSS_EXPRESS,
     },
   ]);
   
