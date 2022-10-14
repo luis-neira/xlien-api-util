@@ -22,7 +22,8 @@ exports.seed = async knex => {
 
   const packetId = uuidv4();
   const orderId = uuidv4();
-  let taskId = uuidv4();
+  const taskId = uuidv4();
+
   const orderType = faker.helpers.arrayElement(orderTypes);
   const vehicleInfo = faker.helpers.arrayElement(vins);
   const lenderInfo = faker.helpers.arrayElement(lenders);
@@ -160,7 +161,7 @@ exports.seed = async knex => {
       status: 'pending',
       created_at: new Date().toJSON(),
       updated_at: new Date().toJSON(),
-      order_type_id: orderType.orderId,
+      order_type_id: orderType.orderTypeId,
       enabled: orderType.enabled,
       attempt_count: 0,
       system_attempt_count: 0,
@@ -168,33 +169,24 @@ exports.seed = async knex => {
     },
   ]);
 
-  const loadedTaskTypes = [];
+  const [ num, int] = taskTypes.find((t) => t.id === orderType.taskTypeId).dueBy.split(' ');
 
-  if (!loadedTaskTypes.includes(orderType.taskTypeId)) {
-    taskId = uuidv4();
-
-    const [ num, int] = taskTypes.find((t) => t.id === orderType.taskTypeId).dueBy.split(' ');
-
-    await knex('tasks').insert([
-      {
-        task_id: taskId,
-        packet_id: packetId, //depend
-        status: 'unstarted',
-        due_by: add(new Date(), {
-          [int]: parseInt(num)
-        }),
-        priority: 1,
-        created_at: new Date().toJSON(),
-        updated_at: new Date().toJSON(),
-        task_type_id: orderType.taskTypeId,
-        processing_group: 'lossexpress',
-      },
-    ]);
+  await knex('tasks').insert([
+    {
+      task_id: taskId,
+      packet_id: packetId, //depend
+      status: 'unstarted',
+      due_by: add(new Date(), {
+        [int]: parseInt(num)
+      }),
+      priority: 1,
+      created_at: new Date().toJSON(),
+      updated_at: new Date().toJSON(),
+      task_type_id: orderType.taskTypeId,
+      processing_group: 'lossexpress',
+    },
+  ]);
   
-    loadedTaskTypes.push(orderTypes.taskTypeId);
-    
-  }
-
   await knex('order_tasks').insert([
     {
       order_id: orderId,
