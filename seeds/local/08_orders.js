@@ -11,6 +11,7 @@ const lenders = require('../../mocks/lenders');
 const users = require('../../mocks/users');
 const causesOfLoss = require('../../mocks/cause-of-loss');
 const documentType = require('../../mocks/document-types');
+const eventLogTypes = require('../../mocks');
 
 // Adds vendors and requesting companies.
 exports.seed = async knex => {
@@ -95,8 +96,8 @@ exports.seed = async knex => {
     {
       event_log_id: uuidv4(),
       packet_id: packetId,
-      type: 'packet-create',
-      message: 'Claim Created',
+      type: eventLogTypes.packetCreatedClaim.type,
+      message: eventLogTypes.packetCreatedClaim.message,
       requesting_company_id: userInfo.requesting_company_id,
       created_at: new Date().toJSON(),
       updated_at: new Date().toJSON(),
@@ -131,8 +132,8 @@ exports.seed = async knex => {
     {
       event_log_id: uuidv4(),
       packet_id: packetId,
-      type: 'document-added',
-      message: 'Documentation Added (settlement breakdown)',
+      type: eventLogTypes.documentAddedSettlementBreakdown.type,
+      message: eventLogTypes.documentAddedSettlementBreakdown.message,
       requesting_company_id: userInfo.requesting_company_id,
       created_at: new Date().toJSON(),
       updated_at: new Date().toJSON(),
@@ -143,8 +144,8 @@ exports.seed = async knex => {
     {
       event_log_id: uuidv4(),
       packet_id: packetId,
-      type: 'document-added',
-      message: 'Documentation Added (valuation report)',
+      type: eventLogTypes.documentAddedValuationReport.type,
+      message: eventLogTypes.documentAddedValuationReport.message,
       requesting_company_id: userInfo.requesting_company_id,
       created_at: new Date().toJSON(),
       updated_at: new Date().toJSON(),
@@ -201,8 +202,8 @@ exports.seed = async knex => {
     {
       event_log_id: uuidv4(),
       packet_id: packetId,
-      type: 'order-placed',
-      message: 'Order Placed: Payment History',
+      type: eventLogTypes.orderPlacedPaymentHistory.type,
+      message: eventLogTypes.orderPlacedPaymentHistory.message,
       requesting_company_id: userInfo.requesting_company_id,
       created_at: new Date().toJSON(),
       updated_at: new Date().toJSON(),
