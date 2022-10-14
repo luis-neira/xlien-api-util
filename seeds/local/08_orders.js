@@ -10,6 +10,7 @@ const vins = require('../../mocks/vins');
 const lenders = require('../../mocks/lenders');
 const users = require('../../mocks/users');
 const causesOfLoss = require('../../mocks/cause-of-loss');
+const documentType = require('../../mocks/document-types');
 
 // Adds vendors and requesting companies.
 exports.seed = async knex => {
@@ -113,7 +114,7 @@ exports.seed = async knex => {
       updated_at: new Date().toJSON(),
       deleted: false,
       is_form: false,
-      type: 'settlement breakdown'
+      type: documentType.SETTLEMENT_BREAKDOWN,
     },
     {
       packet_id: packetId,
@@ -122,7 +123,7 @@ exports.seed = async knex => {
       updated_at: new Date().toJSON(),
       deleted: false,
       is_form: false,
-      type: 'valuation report'
+      type: documentType.VALUATION_REPORT,
     },
   ]);
 
