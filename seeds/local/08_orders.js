@@ -89,6 +89,69 @@ exports.seed = async knex => {
     },
   ]);
 
+  await knex('event_logs').insert([
+    {
+      event_log_id: uuidv4(),
+      packet_id: packetId,
+      type: 'packet-create',
+      message: 'Claim Created',
+      requesting_company_id: userInfo.requesting_company_id,
+      created_at: new Date().toJSON(),
+      updated_at: new Date().toJSON(),
+      system_event: false,
+      user_id: userInfo.user_id,
+      internal_event: false,
+    },
+  ]);
+
+  await knex('documents').insert([
+    {
+      packet_id: packetId,
+      document_name: `${packetId}-Regular PDF.pdf`,
+      created_at: new Date().toJSON(),
+      updated_at: new Date().toJSON(),
+      deleted: false,
+      is_form: false,
+      type: 'settlement breakdown'
+    },
+    {
+      packet_id: packetId,
+      document_name: `${packetId}-Regular PDF.pdf`,
+      created_at: new Date().toJSON(),
+      updated_at: new Date().toJSON(),
+      deleted: false,
+      is_form: false,
+      type: 'valuation report'
+    },
+  ]);
+
+  await knex('event_logs').insert([
+    {
+      event_log_id: uuidv4(),
+      packet_id: packetId,
+      type: 'document-added',
+      message: 'Documentation Added (settlement breakdown)',
+      requesting_company_id: userInfo.requesting_company_id,
+      created_at: new Date().toJSON(),
+      updated_at: new Date().toJSON(),
+      system_event: false,
+      user_id: userInfo.user_id,
+      internal_event: false,
+    },
+    {
+      event_log_id: uuidv4(),
+      packet_id: packetId,
+      type: 'document-added',
+      message: 'Documentation Added (valuation report)',
+      requesting_company_id: userInfo.requesting_company_id,
+      created_at: new Date().toJSON(),
+      updated_at: new Date().toJSON(),
+      system_event: false,
+      user_id: userInfo.user_id,
+      internal_event: false,
+    },
+  ]);
+
   await knex('orders').insert([
     {
       order_id: orderId,
@@ -141,24 +204,18 @@ exports.seed = async knex => {
     },
   ]);
 
-  await knex('documents').insert([
+  await knex('event_logs').insert([
     {
+      event_log_id: uuidv4(),
       packet_id: packetId,
-      document_name: `${packetId}-Regular PDF.pdf`,
+      type: 'order-placed',
+      message: 'Order Placed: Payment History',
+      requesting_company_id: userInfo.requesting_company_id,
       created_at: new Date().toJSON(),
       updated_at: new Date().toJSON(),
-      deleted: false,
-      is_form: false,
-      type: 'settlement breakdown'
-    },
-    {
-      packet_id: packetId,
-      document_name: `${packetId}-Regular PDF.pdf`,
-      created_at: new Date().toJSON(),
-      updated_at: new Date().toJSON(),
-      deleted: false,
-      is_form: false,
-      type: 'valuation report'
+      system_event: false,
+      user_id: userInfo.user_id,
+      internal_event: false,
     },
   ]);
 
