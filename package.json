@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "init:add-order-types": "node index.js --additional-order-types",
+    "init:order-types": "node index.js --additional-order-types",
     "init:email": "node index.js --email-address",
     "init:worker": "node index.js --worker-can"
   },
