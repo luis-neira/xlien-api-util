@@ -203,8 +203,8 @@ exports.seed = async knex => {
     {
       event_log_id: uuidv4(),
       packet_id: packetId,
-      type: eventLogTypes.orderPlacedPaymentHistory.type,
-      message: eventLogTypes.orderPlacedPaymentHistory.message,
+      type: eventLogTypes.orderType[orderType.orderType].type,
+      message: eventLogTypes.orderType[orderType.orderType].message,
       requesting_company_id: userInfo.requesting_company_id,
       created_at: new Date().toJSON(),
       updated_at: new Date().toJSON(),
