@@ -13,7 +13,7 @@ module.exports = {
     type: 'document-added',
     message: 'Documentation Added (valuation report)',
   },
-  orderType: { 
+  orderTypes: { 
     'Copy of Title': {
       type: 'order-placed',
       message: 'Order Placed: Copy of Title',
