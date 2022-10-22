@@ -32,127 +32,152 @@ module.exports = {
     'Review for Changes': {
       taskTypeId: 'ff466f81-aa79-4c4a-88c9-24aac24fffcd',
       hardcodedId: 'CHANGE_REVIEW',
-      name: 'Review for Changes'
+      name: 'Review for Changes',
+      dueBy: '1 hours'
     },
     'Follow-up on Check': {
       taskTypeId: '804cc953-0e0e-4960-a9ab-b8a7c03e8fe6',
       hardcodedId: 'CHECK_FOLLOWUP',
-      name: 'Follow-up on Check'
+      name: 'Follow-up on Check',
+      dueBy: '4 hours'
     },
     'Create Document': {
       task_type_id: '66c1f7e3-ebce-4203-9a5c-96b22ff492a1',
       hardcoded_id: 'CREATE_DOCUMENT',
-      name: 'Create Document'
+      name: 'Create Document',
+      dueBy: '30 minutes'
     },
     'Request Customer Authorization': {
       task_type_id: '2c80eee0-fb81-49c8-aef9-046b4cff102a',
       hardcoded_id: 'CUSTOMER_AUTH_CALL',
-      name: 'Request Customer Authorization'
+      name: 'Request Customer Authorization',
+      dueBy: '1 hours'
     },
     'Fulfill Order(s)': {
       taskTypeId: 'd56ddf90-10fb-44e2-9cd8-83107e002ad6',
       hardcodedId: 'FULFILL_ORDER',
-      name: 'Fulfill Order(s)'
+      name: 'Fulfill Order(s)',
+      dueBy: '1 hour'
     },
     'Handle Disputed Settlement Counter': {
       taskTypeId: '97b7d98c-e102-4005-8120-f58f36e06329',
       hardcodedId: 'HANDLE_DISPUTED_COUNTER_OFFER',
-      name: 'Handle Disputed Settlement Counter'
+      name: 'Handle Disputed Settlement Counter',
+      dueBy: '4 hours'
     },
     'Follow-up on LoG': {
       taskTypeId: 'ee8da20c-9c8a-41d9-8f3c-7b7a32654b2e',
       hardcodedId: 'LOG_FOLLOWUP_CALL',
-      name: 'Follow-up on LoG'
+      name: 'Follow-up on LoG',
+      dueBy: '2 hours'
     },
     'Loss Initiation Call': {
       taskTypeId: 'f60e8cfb-5800-498f-9615-86e7653739ae',
       hardcodedId: 'LOSS_INITIATION_CALL',
-      name: 'Loss Initiation Call'
+      name: 'Loss Initiation Call',
+      dueBy: '1 hours'
     },
     'Call for Payoff': {
       taskTypeId: 'c4e3fd63-7945-4f2f-ab9e-6ff303556b2a',
       hardcodedId: 'PAYOFF_CALL',
-      name: 'Call for Payoff'
+      name: 'Call for Payoff',
+      dueBy: '45 minutes'
     },
     'Payoff Entry': {
       taskTypeId: '534abb76-15b8-47b3-8f95-354c085bc1da',
       hardcodedId: 'PAYOFF_ENTRY',
-      name: 'Payoff Entry'
+      name: 'Payoff Entry',
+      dueBy: '10 minutes'
     },
     'Follow-up on Payoff': {
       taskTypeId: '24ecd3da-c447-4146-ad32-964014142e6c',
       hardcodedId: 'PAYOFF_FOLLOWUP_CALL',
-      name: 'Follow-up on Payoff'
+      name: 'Follow-up on Payoff',
+      dueBy: '2 hours'
     },
     'Review for Quality': {
       taskTypeId: 'a55f1a19-9a45-4ee0-beb2-e9a3d792cf72',
       hardcodedId: 'QUALITY_REVIEW',
-      name: 'Review for Quality'
+      name: 'Review for Quality',
+      dueBy: '4 hours'
     },
     'Re-send LoG Request': {
       taskTypeId: 'ad841fe2-0f37-48f7-afa1-fc546404ccb2',
       hardcodedId: 'RESEND_LOG_REQUEST',
-      name: 'Re-send LoG Request'
+      name: 'Re-send LoG Request',
+      dueBy: '2 hours'
     },
     'Review Document from Adjuster': {
       taskTypeId: '10bb46bc-269c-4c23-ac28-aa26ddcab6f8',
       hardcodedId: 'REVIEW_ADJUSTER_DOC',
-      name: 'Review Document from Adjuster'
+      name: 'Review Document from Adjuster',
+      dueBy: '15 minutes'
     },
     'Review Note from Lender': {
       taskTypeId: 'aeb239fe-5c74-4ed2-902f-07fac22d8d07',
       hardcodedId: 'REVIEW_LENDER_NOTE',
-      name: 'Review Note from Lender'
+      name: 'Review Note from Lender',
+      dueBy: '1 hours'
     },
     'Review Lender Counter-Offer': {
       taskTypeId: '53731c3f-552a-4fc2-bdb4-251b00d8eeca',
       hardcodedId: 'REVIEW_LENDER_OFFER',
-      name: 'Review Lender Counter-Offer'
+      name: 'Review Lender Counter-Offer',
+      dueBy: '1 hours'
     },
     'Review Lender Offer': {
       taskTypeId: '82f68023-80b7-40c1-9782-2312492f7b33',
       hardcodedId: 'REVIEW_LENDER_OFFER',
-      name: 'Review Lender Offer'
+      name: 'Review Lender Offer',
+      dueBy: '2 hours'
     },
     'Send Message to Adjuster': {
       taskTypeId: '80e642ba-31db-47fc-8411-a0f31570f9e0',
       hardcodedId: 'SEND_DM',
-      name: 'Send Message to Adjuster'
+      name: 'Send Message to Adjuster',
+      dueBy: '1 hours'
     },
     'Send LoG Request': {
       taskTypeId: 'b96f52b6-bcc9-4913-a196-845c5ab4c5cf',
       hardcodedId: 'SEND_LOG_REQUEST',
-      name: 'Send LoG Request'
+      name: 'Send LoG Request',
+      dueBy: '2 hours'
     },
     'Send Loss Initiation Docs': {
       taskTypeId: '558310b5-4d2d-4c0f-899d-bd1b3af3dab4',
       hardcodedId: 'SEND_LOSS_INITIATION_DOCS',
-      name: 'Send Loss Initiation Docs'
+      name: 'Send Loss Initiation Docs',
+      dueBy: '8 hours'
     },
     'Send Payoff Request': {
       taskTypeId: '63ffb3ca-374a-4e3d-9013-e9d0c45970d9',
       hardcodedId: 'SEND_PAYOFF_REQUEST',
-      name: 'Send Payoff Request'
+      name: 'Send Payoff Request',
+      dueBy: '1 hours'
     },
     'Follow-up on Title': {
       taskTypeId: 'f23de472-b250-49d0-b865-fa6e0e9679e0',
       hardcodedId: 'TITLE_FOLLOWUP',
-      name: 'Follow-up on Title'
+      name: 'Follow-up on Title',
+      dueBy: '4 hours'
     },
     'Validate Document': {
       taskTypeId: '5f2cad3a-4e14-4a18-94a7-82cf3912c09f',
       hardcodedId: 'VALIDATE_DOCUMENT',
-      name: 'Validate Document'
+      name: 'Validate Document',
+      dueBy: '10 minutes'
     },
     'Verify Lender': {
       taskTypeId: '08492ca0-4520-4618-a33c-48a808abbc1d',
       hardcodedId: 'VERIFY_LENDER',
-      name: 'Verify Lender'
+      name: 'Verify Lender',
+      dueBy: '2 hours'
     },
     'Written Payoff (Customer Auth)': {
       taskTypeId: '0c56c248-0dc0-4a4d-8776-ed9f49b8903f',
       hardcodedId: 'WRITTEN_PAYOFF',
-      name: 'Written Payoff (Customer Auth)'
+      name: 'Written Payoff (Customer Auth)',
+      dueBy: '1 hours'
     }
   }
 };

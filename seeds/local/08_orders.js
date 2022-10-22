@@ -4,14 +4,19 @@ const faker = require('@faker-js/faker').faker;
 const { v4: uuidv4 } = require('uuid');
 const { add } = require('date-fns');
 
-const orderTypes = require('../../mocks/order-types');
+const { orderTypes } = require('../../mocks/order-types');
 const taskTypes = require('../../mocks/task_types');
 const vins = require('../../mocks/vins');
 const lenders = require('../../mocks/lenders');
 const users = require('../../mocks/users');
 const causesOfLoss = require('../../mocks/cause-of-loss');
 const documentType = require('../../mocks/document-types');
-const eventLogTypes = require('../../mocks/event-logs-types');
+const {
+  documentAdded,
+  orderPlaced,
+  packetCreated,
+  eventLogsConstants
+} = require('../../mocks/event-logs-types');
 const processingGroup = require('../../mocks/processing-groups');
 
 // Adds vendors and requesting companies.
@@ -105,8 +110,8 @@ exports.seed = async (knex) => {
     {
       event_log_id: uuidv4(),
       packet_id: packetId,
-      type: eventLogTypes.packetCreatedClaim.type,
-      message: eventLogTypes.packetCreatedClaim.message,
+      type: packetCreated[eventLogsConstants.CLAIM_CREATED].type,
+      message: packetCreated[eventLogsConstants.CLAIM_CREATED].message,
       requesting_company_id: userInfo.requesting_company_id,
       created_at: new Date().toJSON(),
       updated_at: new Date().toJSON(),
@@ -141,8 +146,9 @@ exports.seed = async (knex) => {
     {
       event_log_id: uuidv4(),
       packet_id: packetId,
-      type: eventLogTypes.documentAddedSettlementBreakdown.type,
-      message: eventLogTypes.documentAddedSettlementBreakdown.message,
+      type: documentAdded[eventLogsConstants.DA_SETTLEMENT_BREAKDOWN].type,
+      message:
+        documentAdded[eventLogsConstants.DA_SETTLEMENT_BREAKDOWN].message,
       requesting_company_id: userInfo.requesting_company_id,
       created_at: new Date().toJSON(),
       updated_at: new Date().toJSON(),
@@ -153,8 +159,8 @@ exports.seed = async (knex) => {
     {
       event_log_id: uuidv4(),
       packet_id: packetId,
-      type: eventLogTypes.documentAddedValuationReport.type,
-      message: eventLogTypes.documentAddedValuationReport.message,
+      type: documentAdded[eventLogsConstants.DA_VALUATION_REPORT].type,
+      message: documentAdded[eventLogsConstants.DA_VALUATION_REPORT].message,
       requesting_company_id: userInfo.requesting_company_id,
       created_at: new Date().toJSON(),
       updated_at: new Date().toJSON(),
@@ -213,8 +219,8 @@ exports.seed = async (knex) => {
     {
       event_log_id: uuidv4(),
       packet_id: packetId,
-      type: eventLogTypes.orderTypes[orderTypeInfo.orderType].type,
-      message: eventLogTypes.orderTypes[orderTypeInfo.orderType].message,
+      type: orderPlaced[orderTypeInfo.orderType].type,
+      message: orderPlaced[orderTypeInfo.orderType].message,
       requesting_company_id: userInfo.requesting_company_id,
       created_at: new Date().toJSON(),
       updated_at: new Date().toJSON(),
