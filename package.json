@@ -8,7 +8,8 @@
     "init:order-types": "node index.js --additional-order-types",
     "init:email": "node index.js --email-address",
     "init:worker": "node index.js --worker-can",
-    "knex:seed:random-order": "knex seed:run --specific=08_orders.js"
+    "knex:seed": "node --require dotenv/config node_modules/.bin/knex seed:run",
+    "knex:seed:random-order": "node --require dotenv/config node_modules/.bin/knex seed:run --specific=08_orders.js"
   },
   "keywords": [],
   "author": "Luis Neira",
